@@ -1,0 +1,160 @@
+<?php
+header("Content-Type: text/html; charset=UTF-8");
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isolir Sementara - ARNETA.ID</title>
+  <style>
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+      margin:0;padding:0;box-sizing:border-box;
+      background:linear-gradient(135deg,#141e30,#243b55);
+      height:100vh;display:flex;align-items:center;justify-content:center;color:#fff;overflow:hidden;
+    }
+    .card{
+      background:rgba(255,255,255,0.1);backdrop-filter:blur(12px);border-radius:20px;
+      padding:50px 40px;width:90%;max-width:480px;text-align:center;
+      box-shadow:0 15px 40px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.2);
+    }
+    .brand{
+      font-size:32px;font-weight:900;letter-spacing:3px;margin-bottom:15px;
+      color:#00d4ff;text-shadow:0 0 15px rgba(0,212,255,0.6);
+    }
+    .title{
+      font-size:28px;font-weight:700;margin:15px 0 5px;
+      color:#ff6b6b;text-shadow:0 0 20px rgba(255,107,107,0.5);
+    }
+    /* TEXT BESAR ISOLIR BERKEDIP MERAH → HITAM */
+    .isolir{
+      font-size:82px;font-weight:900;letter-spacing:10px;margin:20px 0;
+      animation:blinkRedBlack 1.8s ease-in-out infinite;
+    }
+    @keyframes blinkRedBlack{
+      0%,100%{color:#ff2d55;text-shadow:0 0 25px #ff2d55,0 0 45px #ff2d55;}
+      50%{color:#000;text-shadow:0 0 10px rgba(0,0,0,0.8);}
+    }
+    .message{
+      font-size:17px;line-height:1.8;margin:25px 0;opacity:0.95;
+    }
+    .highlight{color:#00ff9d;font-weight:700;}
+    .countdown-big{
+      font-size:68px;font-weight:900;margin:30px 0;
+      color:#00ff9d;text-shadow:0 0 20px rgba(0,255,157,0.7);letter-spacing:5px;
+    }
+    .redirect-info{font-size:16px;opacity:0.9;margin-bottom:10px;}
+    .btn-dashboard{
+      display:inline-block;margin:35px auto 10px;padding:18px 48px;
+      background:linear-gradient(45deg,#00d4ff,#00ff9d);color:#141e30;
+      font-size:18px;font-weight:700;text-decoration:none;border-radius:50px;
+      box-shadow:0 12px 30px rgba(0,212,255,0.4);transition:all .3s ease;
+    }
+    .btn-dashboard:hover{
+      transform:translateY(-5px);box-shadow:0 18px 35px rgba(0,255,157,0.5);
+      background:linear-gradient(45deg,#00ff9d,#00d4ff);
+    }
+    @media (max-width:480px){
+      .isolir{font-size:58px;letter-spacing:5px;}
+      .countdown-big{font-size:52px;}
+      .title{font-size:24px;}
+      .message{font-size:16px;}
+      .card{padding:40px 25px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="brand">ARNETA.ID</div>
+    
+    <div class="title">Layanan Sedang Diisolir</div>
+    
+    <!-- TEXT BESAR BERKEDIP -->
+    <div class="isolir">ISOLIR</div>
+
+    <div class="message">
+      Mohon maaf, saat ini akses internet Anda sedang dibatasi sementara karena tagihan bulan ini belum tercatat lunas.<br><br>
+      Agar layanan dapat segera aktif kembali dan tidak terputus di kemudian hari, mohon melakukan pembayaran paling lambat tanggal 
+      <span class="highlight">20</span> setiap bulannya.
+    </div>
+
+    <div class="countdown-big" id="timer">60</div>
+
+    <div class="redirect-info">
+      Anda akan dialihkan ke dashboard pelanggan dalam <strong id="timer2">60</strong> detik...
+    </div>
+
+    <a href="https://phpnuxbill.arneta.biz.id/?route=home" class="btn-dashboard">
+      Masuk Ke Dashboard
+    </a>
+  </div>
+
+  <script>
+    const redirectUrl = "https://phpnuxbill.arneta.biz.id/?route=home";
+    let timeLeft = 60;
+
+    const timerBig  = document.getElementById("timer");
+    const timerText = document.getElementById("timer2");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerBig.textContent  = timeLeft;
+      timerText.textContent = timeLeft;
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        window.location.href = redirectUrl;
+      }
+    }, 1000);
+
+    document.querySelector('.btn-dashboard').onclick = () => clearInterval(countdown);
+  </script>
+
+</body>
+</html>
+  <div class="card">
+    <div class="brand">ARNETA.ID</div>
+    
+    <div class="title">Layanan Sedang Diisolir</div>
+
+    <div class="message">
+      Mohon maaf, saat ini akses internet Anda sedang di batasi sementara karena tagihan bulan ini belum tercatat lunas.<br><br>
+      Agar layanan dapat segera aktif kembali dan tidak terputus di kemudian hari, mohon melakukan pembayaran paling lambat tanggal 
+      <span class="highlight">20</span> setiap bulannya.
+    </div>
+
+    <div class="countdown-big" id="timer">10</div>
+
+    <div class="redirect-info">
+      Anda akan dialihkan ke dashboard pelanggan dalam <strong id="timer2">10</strong> detik...
+    </div>
+
+    <a href="https://phpnuxbill.arneta.biz.id/?route=home" class="btn-dashboard">
+      🚀 Masuk Ke Dashboard
+    </a>
+  </div>
+
+  <script>
+    const redirectUrl = "https://phpnuxbill.arneta.biz.id/?route=home";
+    let timeLeft = 10;
+
+    const timerBig  = document.getElementById("timer");
+    const timerText = document.getElementById("timer2");
+
+    const countdown = setInterval(() => {
+      timeLeft--;
+      timerBig.textContent  = timeLeft;
+      timerText.textContent = timeLeft;
+
+      if (timeLeft <= 0) {
+        clearInterval(countdown);
+        window.location.href = redirectUrl;
+      }
+    }, 1000);
+
+    document.querySelector('.btn-dashboard').onclick = () => clearInterval(countdown);
+  </script>
+
+</body>
+</html>
