@@ -1,6 +1,3 @@
-<?php
-header("Content-Type: text/html; charset=UTF-8");
-?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -27,7 +24,6 @@ header("Content-Type: text/html; charset=UTF-8");
       font-size:28px;font-weight:700;margin:15px 0 5px;
       color:#ff6b6b;text-shadow:0 0 20px rgba(255,107,107,0.5);
     }
-    /* TEXT BESAR ISOLIR BERKEDIP MERAH → HITAM */
     .isolir{
       font-size:82px;font-weight:900;letter-spacing:10px;margin:20px 0;
       animation:blinkRedBlack 1.8s ease-in-out infinite;
@@ -102,51 +98,6 @@ header("Content-Type: text/html; charset=UTF-8");
       timeLeft--;
       timerBig.textContent  = timeLeft;
       timerText.textContent = timeLeft;
-      if (timeLeft <= 0) {
-        clearInterval(countdown);
-        window.location.href = redirectUrl;
-      }
-    }, 1000);
-
-    document.querySelector('.btn-dashboard').onclick = () => clearInterval(countdown);
-  </script>
-
-</body>
-</html>
-  <div class="card">
-    <div class="brand">ARNETA.ID</div>
-    
-    <div class="title">Layanan Sedang Diisolir</div>
-
-    <div class="message">
-      Mohon maaf, saat ini akses internet Anda sedang di batasi sementara karena tagihan bulan ini belum tercatat lunas.<br><br>
-      Agar layanan dapat segera aktif kembali dan tidak terputus di kemudian hari, mohon melakukan pembayaran paling lambat tanggal 
-      <span class="highlight">20</span> setiap bulannya.
-    </div>
-
-    <div class="countdown-big" id="timer">10</div>
-
-    <div class="redirect-info">
-      Anda akan dialihkan ke dashboard pelanggan dalam <strong id="timer2">10</strong> detik...
-    </div>
-
-    <a href="https://phpnuxbill.arneta.biz.id/?route=home" class="btn-dashboard">
-      🚀 Masuk Ke Dashboard
-    </a>
-  </div>
-
-  <script>
-    const redirectUrl = "https://phpnuxbill.arneta.biz.id/?route=home";
-    let timeLeft = 10;
-
-    const timerBig  = document.getElementById("timer");
-    const timerText = document.getElementById("timer2");
-
-    const countdown = setInterval(() => {
-      timeLeft--;
-      timerBig.textContent  = timeLeft;
-      timerText.textContent = timeLeft;
-
       if (timeLeft <= 0) {
         clearInterval(countdown);
         window.location.href = redirectUrl;
